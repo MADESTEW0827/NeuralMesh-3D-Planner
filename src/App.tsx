@@ -208,7 +208,7 @@ export default function App() {
         </div>
 
         <a 
-          href="https://github.com/superprocessador" 
+          href="https://github.com/MADESTEW0827/NeuralMesh-3D-Planner" 
           target="_blank" 
           rel="noopener noreferrer"
           className="p-2.5 bg-white/80 dark:bg-slate-900/80 hover:bg-slate-200 dark:hover:bg-slate-800 backdrop-blur-md border border-slate-300 dark:border-white/10 rounded-xl shadow-lg text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center"
@@ -218,9 +218,11 @@ export default function App() {
         </a>
 
         <a 
-          href="mailto:superprocessador@gmail.com?subject=Sugestão de Implementação - NeuralMesh"
+          href="https://github.com/MADESTEW0827/NeuralMesh-3D-Planner/issues"
+          target="_blank"
+          rel="noopener noreferrer"
           className="p-2.5 bg-white/80 dark:bg-slate-900/80 hover:bg-slate-200 dark:hover:bg-slate-800 backdrop-blur-md border border-slate-300 dark:border-white/10 rounded-xl shadow-lg text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all flex items-center justify-center"
-          title="Sugestão de Implementação"
+          title="Sugerir Implementação"
         >
           <Lightbulb className="w-5 h-5" />
         </a>

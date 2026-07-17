@@ -56,13 +56,25 @@ export class ErrorBoundary extends Component<Props, State> {
             </code>
           </div>
 
-          <button 
-            onClick={this.handleReset}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] flex items-center gap-2"
-          >
-            <RefreshCcw className="w-4 h-4" />
-            Tentar Novamente
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={this.handleReset}
+              className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium transition-all shadow-[0_0_15px_rgba(59,130,246,0.3)] flex items-center gap-2 justify-center"
+            >
+              <RefreshCcw className="w-4 h-4" />
+              Tentar Novamente
+            </button>
+            <button 
+              onClick={() => {
+                localStorage.removeItem('neuralmesh-data');
+                window.location.reload();
+              }}
+              className="px-6 py-3 bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-800 dark:text-white border border-slate-300 dark:border-white/10 rounded-xl font-medium transition-all flex items-center gap-2 justify-center"
+            >
+              <RefreshCcw className="w-4 h-4 text-amber-500" />
+              Restaurar Dados Originais
+            </button>
+          </div>
         </div>
       );
     }

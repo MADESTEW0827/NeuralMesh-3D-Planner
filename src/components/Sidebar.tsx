@@ -461,13 +461,25 @@ const Sidebar: React.FC<SidebarProps> = ({ data, onAddNode, onUpdateNode, onAddL
                     reader.onload = (event) => {
                       try {
                         const parsedData = JSON.parse(event.target?.result as string);
-                        if (parsedData.nodes && parsedData.links) {
+                        
+                        // Robust schema validation to prevent UI crashes
+                        const isValidNodes = Array.isArray(parsedData.nodes) && parsedData.nodes.every((n: any) => 
+                          n && typeof n === 'object' && typeof n.id === 'string' && typeof n.name === 'string'
+                        );
+                        
+                        const isValidLinks = Array.isArray(parsedData.links) && parsedData.links.every((l: any) => 
+                          l && typeof l === 'object' && typeof l.id === 'string' && 
+                          (typeof l.source === 'string' || (l.source && typeof l.source === 'object' && typeof l.source.id === 'string')) &&
+                          (typeof l.target === 'string' || (l.target && typeof l.target === 'object' && typeof l.target.id === 'string'))
+                        );
+
+                        if (isValidNodes && isValidLinks) {
                           onImportGraph(parsedData);
                         } else {
-                          alert("Formato JSON inválido. É esperado um objeto com 'nodes' e 'links'.");
+                          alert("Formato JSON inválido. É necessário que 'nodes' e 'links' sejam listas estruturadas corretamente com identificadores válidos.");
                         }
                       } catch (error) {
-                        alert("Erro ao ler o arquivo JSON.");
+                        alert("Erro ao ler o arquivo JSON ou o arquivo está corrompido.");
                       }
                       e.target.value = '';
                     };
