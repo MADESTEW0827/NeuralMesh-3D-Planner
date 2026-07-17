@@ -1,0 +1,6 @@
+{
+  "name": "NeuralMesh 3D Planner",
+  "description": "A 3D interactive planning tool to visualize microservices architectures as a neural network.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
